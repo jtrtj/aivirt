@@ -5,3 +5,12 @@
   background-attachment: fixed;
   background-size:  cover;
 }
+
+.media-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+td {
+  padding: .2rem;
+}
