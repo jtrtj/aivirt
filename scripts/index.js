@@ -43,6 +43,21 @@ class Game {
     this.score = 0;
     this.questions_answered = 0;
   }
+
+  get questionsAnswerTable() {
+    return this.questions.map(question => {
+      return `
+      <tr>
+        <td>
+          ${question.text}
+        </td>
+        <td>
+          ${question.correct_answer}
+        </td>
+      <tr>
+      `
+    }).join('')
+  }
 }
 
 class Question {
@@ -166,6 +181,17 @@ function endGame() {
             You answered ${newGame.score} of ${
       newGame.questions.length
     } questions correctly!
+          </h2>
+          <h2 class="subtitle">
+            <table>
+              <tbody>
+                <tr>
+                  <td>question:</td>
+                  <td>correct answer:</td>
+                </tr>
+                ${newGame.questionsAnswerTable}
+              </tbody>
+            <table>
           </h2>
           <h2 class="subtitle">
             <a class="button is-danger is-inverted is-outlined" id="start-game">Play again?</a>
